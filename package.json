@@ -1,0 +1,15 @@
+{
+  "name": "polonium",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/idbakkasse/polonium.git",
+  "license": "MIT",
+  "scripts": {
+    "watch": "tailwindcss -i ./app/public/styles/main.css -o ./app/public/styles/dist.css --watch"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.2",
+    "postcss": "^8.4.5",
+    "tailwindcss": "^3.0.11"
+  }
+}

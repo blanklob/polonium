@@ -5,8 +5,8 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="../src/main.css">
-    <link rel="stylesheet" href="../src/account.css">
+    <link rel="stylesheet" href="../styles/dist.css">
+    <link rel="stylesheet" href="../styles/account.css">
     <title><?= $title; ?></title>
 </head>
 <body>
@@ -22,7 +22,7 @@
             </ul>
         </nav>
         <div class="sign-cta">
-            <a href="/user/signin">Sign In</a>
+            <a class="text-3xl font-bold underline" href="/user/signin">Sign In</a>
             <a href="/user/signup">Sign Up</a>
         </div>
     </header>
