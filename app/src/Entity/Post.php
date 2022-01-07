@@ -103,6 +103,4 @@ class Post extends BaseEntity
         $this->authorId = $authorId;
         return $this;
     }
-
-
 }
