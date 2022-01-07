@@ -427,6 +427,7 @@ configs/
 dwsync.xml
 dw_php_codehinting.config
 *.mno
+app/vendor
 
 ##### CodeKit
 # General CodeKit files to ignore
