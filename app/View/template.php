@@ -16,14 +16,14 @@
         </div>
         <nav>
             <ul>
-                <li>Home</li>
-                <li>Wrtie article</li>
-                <li>User list</li>
+                <li><a href="/">Home</a></li>
+                <li><a href="/write-article">Wrtie article</a></li>
+                <li><a href="/user/list">User list</a></li>
             </ul>
         </nav>
         <div class="sign-cta">
-            <a href="#">Sign In</a>
-            <a href="#">Sign Up</a>
+            <a href="/user/signin">Sign In</a>
+            <a href="/user/signup">Sign Up</a>
         </div>
     </header>
 
