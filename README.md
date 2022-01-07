@@ -2,7 +2,7 @@
 
 > Polonium is a world class old school ✍️ blog website made with Php and Tailwind 🌀 to write dump articles about... Yeah I know, you should probably use Medium instead.
 
-![GitHub release (latest by date)][version-badge]]
+![GitHub release (latest by date)][version-badge]
 [![GitHub][licence-badge]](/LICENCE)
 
 Please note that this project was made as school project at Hetic, and is no where near production ready.

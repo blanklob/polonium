@@ -1,8 +1,13 @@
 {
   "name": "polonium",
-  "version": "1.0.0",
-  "main": "index.js",
+  "version": "0.1.0",
+  "main": "app.js",
   "repository": "https://github.com/idbakkasse/polonium.git",
+  "authors": [
+    "Robin",
+    "Youness Idbakkasse",
+    "Manon"
+  ],
   "license": "MIT",
   "scripts": {
     "watch": "tailwindcss -i ./app/public/styles/main.css -o ./app/public/styles/dist.css --watch"
