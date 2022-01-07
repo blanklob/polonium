@@ -32,11 +32,23 @@ class PostController extends BaseController
     }
 
     /**
-     * @Route(path="/show")
+     * @Route(path="/write-article")
      * @return void
      */
-    public function getShowTest()
+    public function getWriteArticle()
     {
-        echo 'je suis bien la bonne méthode';
+        $this->render('Frontend/write-article', [], 'Write Article');
+    }
+
+    /**
+     * @Route(path="/add-new-post")
+     * @return void
+     */
+    public function postAddNewPost()
+    {
+        $manager = new PostManager(PDOFactory::getInstance());
+        $manager->createNewPost($_POST);
+        $this->render('Frontend/write-article', [], 'Write Article');
+
     }
 }
