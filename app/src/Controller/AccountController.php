@@ -32,4 +32,13 @@ class AccountController extends BaseController
     {
         $this->render('Frontend/user/signup', [], 'Polonium - sign un');
     }
+
+    /**
+     * @Route(path="/user/account")
+     * @return void
+     */
+    public function getUserAccount()
+    {
+        $this->render('Frontend/user/account', [], 'Polonium - user Account');
+    }
 }

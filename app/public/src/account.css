@@ -1,0 +1,33 @@
+.user-account form {
+  max-width: 800px;
+  width: 80vw;
+  background-color: antiquewhite;
+  margin: auto;
+  padding: 2rem;
+}
+
+.user-account form > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.user-account label, .user-account input {
+  width: 100%;
+  margin-bottom: .2rem;
+}
+
+.user-account input {
+  border-bottom: 1px solid black;
+  height: 1.5rem;
+  padding: .2rem;
+}
+
+.user-account .password-input input {
+  display: none;
+}
+
+.user-account .password-input a:hover {
+  cursor: pointer;
+}
