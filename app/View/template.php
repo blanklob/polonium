@@ -36,7 +36,7 @@
                     <a href="/write-article" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         Write article
                     </a>
-                    <a href="/user-account" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                    <a href="/user/account" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         Compte
                     </a>
                 </nav>
@@ -83,7 +83,7 @@
                                     Write article
                                 </span>
                             </a>
-                            <a href="/user-account" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                            <a href="/user/account" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                                 <span class="ml-3 text-base font-medium text-gray-900">
                                     Compte
                                 </span>
@@ -123,7 +123,7 @@
                     <a href="/write-article" class="text-base font-medium text-gray-700 hover:text-gray-900">
                         Write article
                     </a>
-                    <a href="/user-account" class="text-base font-medium text-gray-700 hover:text-gray-900">
+                    <a href="/user/account" class="text-base font-medium text-gray-700 hover:text-gray-900">
                         Compte
                     </a>
                 </nav>
