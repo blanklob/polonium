@@ -33,8 +33,8 @@
                     <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         Homepage
                     </a>
-                    <a href="/articles/featured" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                        Featured articles
+                    <a href="/articles/write-article" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                        Write article
                     </a>
                     <a href="/articles/all" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         All articles
@@ -78,9 +78,9 @@
                                     Homepage
                                 </span>
                             </a>
-                            <a href="/articles/featured" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                            <a href="/articles/write-article" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                                 <span class="ml-3 text-base font-medium text-gray-900">
-                                    Featured articles
+                                    Write article
                                 </span>
                             </a>
                             <a href="/articles/all" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
@@ -120,8 +120,8 @@
                     <a href="/" class="text-base font-medium text-gray-700 hover:text-gray-900">
                         Homepage
                     </a>
-                    <a href="/articles/featured" class="text-base font-medium text-gray-700 hover:text-gray-900">
-                        Featured articles
+                    <a href="/articles/write-article" class="text-base font-medium text-gray-700 hover:text-gray-900">
+                        Write article
                     </a>
                     <a href="/articles/all" class="text-base font-medium text-gray-700 hover:text-gray-900">
                         All articles
