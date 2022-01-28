@@ -19,5 +19,7 @@
             "email": "youness@idbakkasse.com"
         }
     ],
-    "require": {}
+    "require": {
+        "firebase/php-jwt": "^6.0"
+    }
 }

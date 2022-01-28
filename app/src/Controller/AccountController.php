@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Core\Factory\PDOFactory;
+use App\Manager\UserManager;
 
 class AccountController extends BaseController
 {
@@ -40,5 +41,40 @@ class AccountController extends BaseController
     public function getUserAccount()
     {
         $this->render('Frontend/user/account', [], 'Polonium - user Account');
+    }
+
+    /**
+     * @Route(path="/add-user")
+     * @return void
+     */
+    public function postAddUser()
+    {
+        $manager = new UserManager(PDOFactory::getInstance());
+        $manager->createNewUser($_POST);
+        $this->render('Frontend/user/signup', [], 'Login');
+
+    }
+    
+    /**
+     * @Route(path="/get-user")
+     * @return void
+     */
+    public function postGetUser()
+    {
+        $manager = new UserManager(PDOFactory::getInstance());
+        $post = $manager->getUser($_POST);
+        $this->render('Frontend/user/account', ['user' => $post], 'Account');
+    }
+
+        
+    /**
+     * @Route(path="/modify-user")
+     * @return void
+     */
+    public function postModifyUser()
+    {
+        $manager = new UserManager(PDOFactory::getInstance());
+        $post = $manager->modifyUser($_POST);
+        $this->render('Frontend/user/account', ['user' => $post], 'Account');
     }
 }
