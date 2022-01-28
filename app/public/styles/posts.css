@@ -1,0 +1,14 @@
+.posts {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.home-post {
+  padding: 30px;
+  text-align: center;
+  min-width: 300px;
+  background-color: beige;
+}

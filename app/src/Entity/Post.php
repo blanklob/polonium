@@ -11,6 +11,7 @@ class Post extends BaseEntity
     private DateTime $createdAt;
     private string $title;
     private string $content;
+    private string $postThumbnail;
     private int $authorId;
 
     /**
@@ -101,6 +102,24 @@ class Post extends BaseEntity
     public function setAuthorId(int $authorId): self
     {
         $this->authorId = $authorId;
+        return $this;
+    }
+
+        /**
+     * @return string
+     */
+    public function getPostThumbnail(): string
+    {
+        return $this->postThumbnail;
+    }
+
+    /**
+     * @param string $postThumbnail
+     * @return Post
+     */
+    public function setPostThumbnail(string $postThumbnail): self
+    {
+        $this->postThumbnail = $postThumbnail;
         return $this;
     }
 }

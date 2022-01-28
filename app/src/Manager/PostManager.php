@@ -12,9 +12,13 @@ class PostManager extends BaseManager
         $query = 'SELECT * FROM Post';
         $stmnt = $this->pdo->query($query);
 
-        $result = $stmnt->fetchAll(\PDO::FETCH_ASSOC)[0];
+        $result = $stmnt->fetchAll(\PDO::FETCH_ASSOC);
 
-        return new Post($result);
+        foreach ($result as $post) {
+            $posts[] = new Post($post);
+        }
+
+        return $posts;
     }
 
     public function createNewPost($post)
@@ -24,19 +28,19 @@ class PostManager extends BaseManager
 
         $query = 
         'INSERT INTO Post 
-        (createdAt, title, content, post_thumbnail, user_id) 
+        (createdAt, title, content, postThumbnail, authorId) 
         VALUES 
-        (:createdAt, :title, :content, :post_thumbnail, :user_id)';
+        (:createdAt, :title, :content, :postThumbnail, :authorId)';
 
         $stmnt = $this->pdo->prepare($query);
 
         $stmnt->bindValue('createdAt', $strDate, \PDO::PARAM_STR);
         $stmnt->bindValue('title', $post['title'], \PDO::PARAM_STR);
         $stmnt->bindValue('content', $post['content'], \PDO::PARAM_STR);
-        $stmnt->bindValue('post_thumbnail', $post['image'], \PDO::PARAM_STR);
+        $stmnt->bindValue('postThumbnail', $post['image'], \PDO::PARAM_STR);
 
         // User id to change when connexion works in app
-        $stmnt->bindValue('user_id', 1, \PDO::PARAM_INT);
+        $stmnt->bindValue('authorId', 1, \PDO::PARAM_INT);
         
         $stmnt->execute();
     }

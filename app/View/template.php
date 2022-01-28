@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="../styles/dist.css">
     <link rel="stylesheet" href="../styles/account.css">
+    <link rel="stylesheet" href="../styles/posts.css">
     <title><?= $title; ?></title> 
 </head>
 <body>
