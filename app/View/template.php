@@ -45,6 +45,12 @@
                             Compte de <?php echo $_COOKIE['userFirstName']; ?>
                         </a>
                     <?php endif; ?>
+
+                    <?php if( isset($_COOKIE['userRole']) && $_COOKIE['userRole'] == 1 ) : ?>
+                        <a href="/user/show-all" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                           See Users
+                        </a>
+                    <?php endif; ?>
                 </nav>
                 <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
 

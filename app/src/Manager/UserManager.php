@@ -73,6 +73,32 @@ class UserManager extends BaseManager
     return new User($result);
   }
 
+  public function findAllUsers()
+  {
+      $query = 'SELECT * FROM User';
+      $stmnt = $this->pdo->query($query);
+
+      $result = $stmnt->fetchAll(\PDO::FETCH_ASSOC);
+
+      $users = [];
+      foreach ($result as $user) {
+          $users[] = new User($user);
+      }
+
+      return $users;
+  }
+
+  public function deleteUser($id)
+  {
+      $query = 
+      'DELETE FROM User WHERE id=:id';
+
+      $stmnt = $this->pdo->prepare($query);
+      $stmnt->bindValue('id', $id, \PDO::PARAM_INT);
+      
+      $stmnt->execute();
+  }
+
   public function setCookies($user) {
     setcookie('id', $user->getId(), time() + (3600 * 2), '/');
     setcookie('userFirstName', $user->getUserFirstName(), time() + (3600 * 2), '/');

@@ -9,15 +9,6 @@ use App\Manager\UserManager;
 class AccountController extends BaseController
 {
     /**
-     * @Route(path="/user/list", name="userlist")
-     * @return void
-     */
-    public function getUserList()
-    {
-        $this->render('Frontend/user/list', [], 'Polonium - users list');
-    }
-
-    /**
      * @Route(path="/user/signin")
      * @return void
      */
@@ -49,6 +40,17 @@ class AccountController extends BaseController
     }
 
     /**
+     * @Route(path="/user/show-all")
+     * @return void
+     */
+    public function getShowAll()
+    {
+        $manager = new UserManager(PDOFactory::getInstance());
+        $users = $manager->findAllUsers();
+        $this->render('Frontend/user/showall', ['users' => $users], 'Polonium - show users');
+    }
+
+    /**
      * @Route(path="/user/account")
      * @return void
      */
@@ -68,7 +70,7 @@ class AccountController extends BaseController
         $post = $manager->getUser($_POST);
         $manager->setCookies($post);
 
-        header('Location: http://localhost:5555/');
+        header('Location: /');
         exit;
 
     }
@@ -86,7 +88,7 @@ class AccountController extends BaseController
             $manager->setCookies($post);
         }
 
-        header('Location: http://localhost:5555/');
+        header('Location: /');
         exit;
     }
 
@@ -101,7 +103,26 @@ class AccountController extends BaseController
         $post = $manager->modifyUser($_POST, $_COOKIE);
         $manager->setCookies($post);
 
-        header('Location: http://localhost:5555/');
+        header('Location: /');
+        exit;
+    }
+
+            
+    /**
+     * @Route(path="/delete-user/{id}")
+     * @return void
+     */
+    public function getDeleteUser($id)
+    {
+        if( ! isset($_COOKIE['userRole']) || $_COOKIE['userRole'] != 1) {
+            header('Location: /');
+            exit;
+        }
+
+        $manager = new UserManager(PDOFactory::getInstance());
+        $manager->deleteUser($id);
+
+        header('Location: /user/show-all');
         exit;
     }
 }

@@ -22,6 +22,20 @@ class PostManager extends BaseManager
         return $posts;
     }
 
+    public function findPost($id)
+    {
+        $query = 'SELECT * FROM Post WHERE id=:id';
+        $stmnt = $this->pdo->prepare($query);
+
+        $stmnt->bindValue('id', $id, \PDO::PARAM_INT);
+        $stmnt->execute();
+
+        $result = $stmnt->fetchAll(\PDO::FETCH_ASSOC)[0];
+        $post = new Post($result);
+
+        return $post;
+    }
+
     public function createNewPost($post)
     {
         $date = new \DateTime();
@@ -41,7 +55,7 @@ class PostManager extends BaseManager
         $stmnt->bindValue('postThumbnail', $post['image'], \PDO::PARAM_STR);
 
         // User id to change when connexion works in app
-        $stmnt->bindValue('authorId', 1, \PDO::PARAM_INT);
+        $stmnt->bindValue('authorId', $_COOKIE['id'], \PDO::PARAM_INT);
         
         $stmnt->execute();
     }

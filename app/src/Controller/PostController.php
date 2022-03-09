@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Core\Factory\PDOFactory;
+use App\Manager\CommentManager;
 use App\Manager\PostManager;
 
 class PostController extends BaseController
@@ -21,14 +22,20 @@ class PostController extends BaseController
     }
 
     /**
-     * @Route(path="/show/{id}-{truc}", name="showOne")
+     * @Route(path="/show/{id}", name="showOne")
      * @param int $id
      * @param string $truc
      * @return void
      */
-    public function getShow(int $id, string $truc)
+    public function getShow(int $id)
     {
-        $this->renderJSON(['message' => $truc, 'parametre' => $id]);
+        $manager = new PostManager(PDOFactory::getInstance());
+        $post = $manager->findPost($id);
+
+        $commentManager = new CommentManager(PDOFactory::getInstance());
+        $comments = $commentManager->getAllComments($id);
+
+        $this->render('Frontend/post', ['post' => $post, 'comments' => $comments], 'le titre de la page');
     }
 
     /**
@@ -38,11 +45,16 @@ class PostController extends BaseController
      */
     public function getDeleteArticle(int $id)
     {
+        if( ! isset($_COOKIE['userRole']) || $_COOKIE['userRole'] != 1) {
+            header('Location: /');
+            exit;
+        }
+
         $manager = new PostManager(PDOFactory::getInstance());
         $manager->deletePost($id);
-        $post = $manager->findAllPosts();
 
-        $this->render('Frontend/home', ['francis' => $post], 'Write Article');
+        header('Location: /');
+        exit;
     }
 
 
@@ -55,6 +67,19 @@ class PostController extends BaseController
         $this->render('Frontend/write-article', [], 'Write Article');
     }
 
+
+    /**
+     * @Route(path="/modify-article/{id}")
+     * @return void
+     */
+    public function getModifyArticle(int $id)
+    {
+        $manager = new PostManager(PDOFactory::getInstance());
+        $post = $manager->findPost($id);
+
+        $this->render('Frontend/modify-article', ['post' => $post], 'Write Article');
+    }
+
     /**
      * @Route(path="/add-new-post")
      * @return void
@@ -62,10 +87,20 @@ class PostController extends BaseController
     public function postAddNewPost()
     {
         $manager = new PostManager(PDOFactory::getInstance());
-        $manager->createNewPost($_POST);
-        $post = $manager->findAllPosts();
 
-        $this->render('Frontend/home', ['francis' => $post], 'Write Article');
+        foreach ($_POST as $key => $value) {
+            $post[$key] = $value;
+        }
 
+        $post['image'] = '../images/' . $_FILES['image']['name'];
+        $manager->createNewPost($post);
+
+        $uploadFileDir = '../images/';
+        $dest_path = $uploadFileDir . $_FILES['image']['name'];
+        $fileTmpPath = $_FILES['image']['tmp_name'];
+        move_uploaded_file($fileTmpPath, $dest_path);
+
+        header('Location:/');
+        exit;
     }
 }
