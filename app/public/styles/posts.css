@@ -12,3 +12,8 @@
   min-width: 300px;
   background-color: beige;
 }
+
+.home-post svg {
+  width: 20px;
+  height: 20px;
+}

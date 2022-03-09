@@ -46,7 +46,7 @@ class UserManager extends BaseManager
   {
     $query = 
     'UPDATE User
-    SET userFirstName=:first_name, userLastName=:last_name, userEmail=:email, userRole=:role
+    SET userFirstName=:first_name, userLastName=:last_name, userEmail=:email
     WHERE id = :id';
 
     $stmnt = $this->pdo->prepare($query);
@@ -55,7 +55,6 @@ class UserManager extends BaseManager
     $stmnt->bindValue('first_name', $post['first_name'], \PDO::PARAM_STR);
     $stmnt->bindValue('last_name', $post['last_name'], \PDO::PARAM_STR);
     $stmnt->bindValue('email', $post['email'], \PDO::PARAM_STR);
-    $stmnt->bindValue('role', 1, \PDO::PARAM_STR);
     $stmnt->execute();
 
     $query = 'SELECT * FROM User WHERE id=:id';
@@ -75,10 +74,18 @@ class UserManager extends BaseManager
   }
 
   public function setCookies($user) {
-    setcookie('id', $user->getId(), time() + (3600 * 2));
-    setcookie('userFirstName', $user->getUserFirstName(), time() + (3600 * 2));
-    setcookie('userLastName', $user->getUserLastName(), time() + (3600 * 2));
-    setcookie('userEmail', $user->getUserEmail(), time() + (3600 * 2));
-    setcookie('userRole', $user->getUserRole(), time() + (3600 * 2));
+    setcookie('id', $user->getId(), time() + (3600 * 2), '/');
+    setcookie('userFirstName', $user->getUserFirstName(), time() + (3600 * 2), '/');
+    setcookie('userLastName', $user->getUserLastName(), time() + (3600 * 2), '/');
+    setcookie('userEmail', $user->getUserEmail(), time() + (3600 * 2), '/');
+    setcookie('userRole', $user->getUserRole(), time() + (3600 * 2), '/');
+  }
+
+  public function logoutUser() {
+    setcookie('userFirstName', "", time() - 3600, '/');
+    setcookie('userLastName', "", time() - 3600, '/');
+    setcookie('userEmail', "", time() - 3600, '/');
+    setcookie('userRole', "", time() - 3600, '/');
+    setcookie('id', "", time() - 3600, '/');
   }
 }

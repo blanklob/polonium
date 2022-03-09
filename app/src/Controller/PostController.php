@@ -32,6 +32,21 @@ class PostController extends BaseController
     }
 
     /**
+     * @Route(path="/delete-article/{id}")
+     * @param int $id
+     * @return void
+     */
+    public function getDeleteArticle(int $id)
+    {
+        $manager = new PostManager(PDOFactory::getInstance());
+        $manager->deletePost($id);
+        $post = $manager->findAllPosts();
+
+        $this->render('Frontend/home', ['francis' => $post], 'Write Article');
+    }
+
+
+    /**
      * @Route(path="/write-article")
      * @return void
      */
@@ -48,7 +63,9 @@ class PostController extends BaseController
     {
         $manager = new PostManager(PDOFactory::getInstance());
         $manager->createNewPost($_POST);
-        $this->render('Frontend/write-article', [], 'Write Article');
+        $post = $manager->findAllPosts();
+
+        $this->render('Frontend/home', ['francis' => $post], 'Write Article');
 
     }
 }

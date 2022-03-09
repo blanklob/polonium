@@ -34,20 +34,30 @@
                     <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
                         Homepage
                     </a>
-                    <a href="/write-article" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                        Write article
-                    </a>
-                    <a href="/user/account" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                        Compte
-                    </a>
+                    <?php if( isset($_COOKIE['userRole']) && ( $_COOKIE['userRole'] == 1 || $_COOKIE['userRole'] == 2 ) ) : ?>
+                        <a href="/write-article" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                            Write article
+                        </a>
+                    <?php endif; ?>
+
+                    <?php if( isset($_COOKIE['id']) ) : ?>
+                        <a href="/user/account" class="text-base font-medium text-gray-500 hover:text-gray-900">
+                            Compte de <?php echo $_COOKIE['userFirstName']; ?>
+                        </a>
+                    <?php endif; ?>
                 </nav>
                 <div class="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                    <a href="/user/signin" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                        Sign in
-                    </a>
-                    <a href="/user/signup" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-amber-600 hover:bg-amber-700">
-                        Sign up
-                    </a>
+
+                    <?php if( ! isset($_COOKIE['id']) ) : ?>
+                        <a href="/user/signin" class="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+                            Sign in
+                        </a>
+                        <a href="/user/signup" class="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-amber-600 hover:bg-amber-700">
+                            Sign up
+                        </a>
+                    <?php else : ?>
+                        <a href="/user/logout" ><img src="https://img.icons8.com/ios/50/000000/exit.png"/></a>
+                    <?php endif; ?>
                 </div>
                 </div>
             </div>

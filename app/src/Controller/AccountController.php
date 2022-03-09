@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Core\Factory\PDOFactory;
+use App\Manager\PostManager;
 use App\Manager\UserManager;
 
 class AccountController extends BaseController
@@ -31,7 +32,20 @@ class AccountController extends BaseController
      */
     public function getSignUp()
     {
-        $this->render('Frontend/user/signup', [], 'Polonium - sign un');
+        $this->render('Frontend/user/signup', [], 'Polonium - sign up');
+    }
+    
+    /**
+     * @Route(path="/user/logout")
+     * @return void
+     */
+    public function getLogout()
+    {
+        $manager = new UserManager(PDOFactory::getInstance());
+        $manager->logoutUser();
+
+        header('Location: http://localhost:5555/');
+        exit;
     }
 
     /**
@@ -54,7 +68,8 @@ class AccountController extends BaseController
         $post = $manager->getUser($_POST);
         $manager->setCookies($post);
 
-        $this->render('Frontend/user/signup', [], 'Login');
+        header('Location: http://localhost:5555/');
+        exit;
 
     }
     
@@ -71,7 +86,8 @@ class AccountController extends BaseController
             $manager->setCookies($post);
         }
 
-        $this->render('Frontend/user/account', ['user' => $_COOKIE], 'Account');
+        header('Location: http://localhost:5555/');
+        exit;
     }
 
         
@@ -85,6 +101,7 @@ class AccountController extends BaseController
         $post = $manager->modifyUser($_POST, $_COOKIE);
         $manager->setCookies($post);
 
-        $this->render('Frontend/user/account', ['user' => $_COOKIE], 'Account');
+        header('Location: http://localhost:5555/');
+        exit;
     }
 }

@@ -14,6 +14,7 @@ class PostManager extends BaseManager
 
         $result = $stmnt->fetchAll(\PDO::FETCH_ASSOC);
 
+        $posts = [];
         foreach ($result as $post) {
             $posts[] = new Post($post);
         }
@@ -41,6 +42,17 @@ class PostManager extends BaseManager
 
         // User id to change when connexion works in app
         $stmnt->bindValue('authorId', 1, \PDO::PARAM_INT);
+        
+        $stmnt->execute();
+    }
+
+    public function deletePost($id)
+    {
+        $query = 
+        'DELETE FROM Post WHERE id=:id';
+
+        $stmnt = $this->pdo->prepare($query);
+        $stmnt->bindValue('id', $id, \PDO::PARAM_INT);
         
         $stmnt->execute();
     }
