@@ -40,7 +40,7 @@ class AccountController extends BaseController
      */
     public function getUserAccount()
     {
-        $this->render('Frontend/user/account', [], 'Polonium - user Account');
+        $this->render('Frontend/user/account', ['user' => $_COOKIE], 'Polonium - user Account');
     }
 
     /**
@@ -51,6 +51,9 @@ class AccountController extends BaseController
     {
         $manager = new UserManager(PDOFactory::getInstance());
         $manager->createNewUser($_POST);
+        $post = $manager->getUser($_POST);
+        $manager->setCookies($post);
+
         $this->render('Frontend/user/signup', [], 'Login');
 
     }
@@ -63,7 +66,12 @@ class AccountController extends BaseController
     {
         $manager = new UserManager(PDOFactory::getInstance());
         $post = $manager->getUser($_POST);
-        $this->render('Frontend/user/account', ['user' => $post], 'Account');
+
+        if (!isset($_COOKIE['userFirstName'])) {
+            $manager->setCookies($post);
+        }
+
+        $this->render('Frontend/user/account', ['user' => $_COOKIE], 'Account');
     }
 
         
@@ -74,7 +82,9 @@ class AccountController extends BaseController
     public function postModifyUser()
     {
         $manager = new UserManager(PDOFactory::getInstance());
-        $post = $manager->modifyUser($_POST);
-        $this->render('Frontend/user/account', ['user' => $post], 'Account');
+        $post = $manager->modifyUser($_POST, $_COOKIE);
+        $manager->setCookies($post);
+
+        $this->render('Frontend/user/account', ['user' => $_COOKIE], 'Account');
     }
 }
