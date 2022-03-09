@@ -1,0 +1,23 @@
+.mobile__menu.is-active {
+  opacity: 1 !important;
+}
+.mobile__menu:not(.is-active) {
+  opacity: 0 !important;
+  transition: opacity 300ms ease-in-out;
+}
+
+.mobile__menu:not(.is-active) .grid .gap-y-8 {
+}
+
+.logout img {
+  height: 24px !important;
+}
+
+img {
+  max-height: 200px;
+  width: 100%;
+}
+
+main {
+  margin: 2rem 0;
+}

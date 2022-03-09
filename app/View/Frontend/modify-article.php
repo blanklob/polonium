@@ -13,5 +13,7 @@
       <label for="image">Image</label>
       <input id="image" type="file" name="image" value="<?php echo $post->getPostThumbnail(); ?>">
     </div>  
+    <input type="submit">
+    </input>
   </form>
 </section>

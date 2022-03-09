@@ -1,33 +1,52 @@
 .user-account form {
-    max-width: 800px;
-    width: 80vw;
-    background-color: antiquewhite;
-    margin: auto;
-    padding: 2rem;
-  }
-  
-  .user-account form > div {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 1rem;
-  }
-  
-  .user-account label, .user-account input {
-    width: 100%;
-    margin-bottom: .2rem;
-  }
-  
-  .user-account input {
-    border-bottom: 1px solid black;
-    height: 1.5rem;
-    padding: .2rem;
-  }
-  
-  .user-account .password-input input {
-    display: none;
-  }
-  
-  .user-account .password-input a:hover {
-    cursor: pointer;
-  }
+  max-width: 800px;
+  width: 80vw;
+  background-color: antiquewhite;
+  margin: auto;
+  padding: 2rem;
+}
+
+.showall {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showall td {
+  text-align: center;
+}
+
+.showall th:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.showall td:not(:last-child) {
+  margin-right: 0.5rem;
+}
+
+.user-account form > div {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.user-account label,
+.user-account input {
+  width: 100%;
+  margin-bottom: 0.2rem;
+}
+
+.user-account input {
+  border-bottom: 1px solid black;
+  height: 1.5rem;
+  padding: 0.2rem;
+}
+
+.user-account .password-input input {
+  display: none;
+}
+
+.user-account .password-input a:hover {
+  cursor: pointer;
+}

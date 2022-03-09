@@ -33,9 +33,20 @@ class UserManager extends BaseManager
 
     $stmnt = $this->pdo->prepare($query);
 
+    
     $stmnt->bindValue('first_name', $post['first_name'], \PDO::PARAM_STR);
     $stmnt->bindValue('last_name', $post['last_name'], \PDO::PARAM_STR);
-    $stmnt->bindValue('email', $post['email'], \PDO::PARAM_STR);
+    
+    $email = $post['email'];
+    $stmt = $this->pdo->prepare("SELECT * FROM User WHERE userEmail=?");
+    $stmt->execute([$email]);
+    $user = $stmt->fetch();
+    if ($user) {
+      return; // TODO REDIRECT W/O LOGIN
+    } else {
+      $stmnt->bindValue('email', $post['email'], \PDO::PARAM_STR);
+    }
+    
     $stmnt->bindValue('password', $post['password'], \PDO::PARAM_STR);
     $stmnt->bindValue('role', $post['role'], \PDO::PARAM_STR);
 

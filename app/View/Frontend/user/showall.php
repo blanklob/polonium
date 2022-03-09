@@ -5,7 +5,7 @@
 
 <h1>Page Users</h1>
 
-<section class="">
+<section class="showall">
   <table>
     <thead>
       <tr>
