@@ -62,9 +62,12 @@ class PostManager extends BaseManager
 
     public function deletePost($id)
     {
-        $query = 
-        'DELETE FROM Post WHERE id=:id';
+        $query = 'DELETE FROM Comments WHERE post_id = :id';
+        $stmnt = $this->pdo->prepare($query);
+        $stmnt->bindValue('id', $id, \PDO::PARAM_INT);
+        $stmnt->execute();
 
+        $query = 'DELETE FROM Post WHERE id=:id';
         $stmnt = $this->pdo->prepare($query);
         $stmnt->bindValue('id', $id, \PDO::PARAM_INT);
         

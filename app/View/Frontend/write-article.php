@@ -12,7 +12,7 @@
       </div>              
       <div class="mb-2">
         <label for="formFile" class="font-sans font-medium text-gray-700">Add an Image</label>
-        <input class="appearance-none block w-full px-3 py-1.5 text-base font-normal m-0 text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded focus:text-gray-700 focus:bg-white focus:border-amber-800 focus:outline-none" type="file" id="formFile">
+        <input class="appearance-none block w-full px-3 py-1.5 text-base font-normal m-0 text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded focus:text-gray-700 focus:bg-white focus:border-amber-800 focus:outline-none" name='image' type="file" id="formFile">
       </div>
       <input class="mt-4 cursor-pointer whitespace-nowrap inline-flex items-center justify-center px-16 py-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-amber-600 hover:bg-amber-700" type="submit" value="Create a Post">
       </input>
