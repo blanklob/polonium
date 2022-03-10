@@ -132,7 +132,7 @@
         </div>
     </header>
 
-    <main class="flex flex-col items-center justify-center max-w-7xl mx-auto my-8 px-4 sm:px-6 h-96" role="main" id="mainContent">
+    <main class="flex flex-col items-center justify-center max-w-7xl mx-auto my-8 px-4 sm:px-6" role="main" id="mainContent">
         <?= $content; ?>
     </main>
 
