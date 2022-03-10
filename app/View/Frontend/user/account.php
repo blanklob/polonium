@@ -8,7 +8,7 @@
       </div>
       <div class="mb-2">
         <label class="font-sans font-medium text-gray-700" for="last_name">Last Name</label>
-        <input class="border border-solid border-gray-300 appearance-none rounded w-full px-3 py-3 focus focus:border-amber-600 focus:outline-none active:outline-none active:border-amber-600" id="first_name" type="text" value="<?php echo $_COOKIE['userLastName']; ?>" name="last_name">
+        <input class="border border-solid border-gray-300 appearance-none rounded w-full px-3 py-3 focus focus:border-amber-600 focus:outline-none active:outline-none active:border-amber-600" id="last_name" type="text" value="<?php echo $_COOKIE['userLastName']; ?>" name="last_name">
       </div>
 
       <div class="mb-2">
