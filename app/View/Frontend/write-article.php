@@ -4,17 +4,17 @@
     <form method="POST" action="/add-new-post" enctype="multipart/form-data">
       <div class="mb-2">
         <label class="font-sans font-medium text-gray-700" for="title">Title</label>
-        <input class="border border-solid border-gray-300 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-amber-600 focus:outline-none active:outline-none active:border-amber-600" id="title" type="text" name="title">
+        <input class="border border-solid border-gray-300 appearance-none rounded w-full px-3 py-3 focus focus:border-amber-600 focus:outline-none active:outline-none active:border-amber-600" id="title" type="text" name="title">
       </div>
       <div class="mb-2">
         <label class="font-sans font-medium text-gray-700" for="content">Content</label>
-        <textarea class="border border-solid border-gray-300 h-48 appearance-none rounded w-full px-3 py-3 pt-5 pb-2 focus focus:border-amber-600 focus:outline-none active:outline-none active:border-v-600" id="content" name="content"></textarea>
+        <textarea class="border border-solid border-gray-300 h-48 appearance-none rounded w-full px-3 py-3 focus focus:border-amber-600 focus:outline-none active:outline-none active:border-v-600" id="content" name="content"></textarea>
       </div>              
       <div class="mb-2">
         <label for="formFile" class="font-sans font-medium text-gray-700">Add an Image</label>
         <input class="appearance-none block w-full px-3 py-1.5 text-base font-normal m-0 text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded focus:text-gray-700 focus:bg-white focus:border-amber-800 focus:outline-none" type="file" id="formFile">
       </div>
-      <input class="mt-4 cursor-pointer whitespace-nowrap inline-flex items-center justify-center px-16 py-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-amber-600 hover:bg-amber-700" type="submit">
+      <input class="mt-4 cursor-pointer whitespace-nowrap inline-flex items-center justify-center px-16 py-4 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-amber-600 hover:bg-amber-700" type="submit" value="Create a Post">
       </input>
     </form>
   </section>
