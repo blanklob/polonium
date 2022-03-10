@@ -31,18 +31,6 @@
   margin-bottom: 1rem;
 }
 
-.user-account label,
-.user-account input {
-  width: 100%;
-  margin-bottom: 0.2rem;
-}
-
-.user-account input {
-  border-bottom: 1px solid black;
-  height: 1.5rem;
-  padding: 0.2rem;
-}
-
 .user-account .password-input input {
   display: none;
 }

@@ -6,9 +6,6 @@
   transition: opacity 300ms ease-in-out;
 }
 
-.mobile__menu:not(.is-active) .grid .gap-y-8 {
-}
-
 .logout img {
   height: 24px !important;
 }
@@ -23,3 +20,4 @@ img {
 main {
   margin: 2rem 0;
 }
+
