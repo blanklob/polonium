@@ -95,7 +95,7 @@ class PostController extends BaseController
         $post['image'] = '../images/' . $_FILES['image']['name'];
         $manager->createNewPost($post);
 
-        $uploadFileDir = '../images/';
+        $uploadFileDir = './images/';
         $dest_path = $uploadFileDir . $_FILES['image']['name'];
         $fileTmpPath = $_FILES['image']['tmp_name'];
         move_uploaded_file($fileTmpPath, $dest_path);

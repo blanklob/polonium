@@ -22,21 +22,23 @@
 
 
   <!-- COMMENTS -->
-  <?php if ( isset($_COOKIE['id']) ) : ?>
-    <section>
+  <section class="comments">
+    <h2>Commentaires : </h2>
 
-      <?php foreach ($comments as $comment) : ?>
-        <div class="comment">
-          <?php echo $comment->getComment_content(); ?>
-          <?php $date = $comment->getComment_date(); print_r( $date->format('Y-m-d') ); ?>
-          <?php echo $comment->getUserFirstName(); ?>
-        </div>
-      <?php endforeach; ?>
+    <?php foreach ($comments as $comment) : ?>
+      <div class="comment">
+        <p><?php echo $comment->getUserFirstName(); ?></p>
+        <?php echo $comment->getComment_content(); ?>
+        <p><?php $date = $comment->getComment_date(); print_r( $date->format('Y-m-d') ); ?></p>
+      </div>
+    <?php endforeach; ?>
 
+    <?php if ( isset($_COOKIE['id']) ) : ?>
       <form method="POST" action="/add-comment/<?php echo $post->getId(); ?>">
         <input name='content' type='text' placeholder="Votre commentaire">
         <input type="submit" value="Envoyer">
       </form>
-    </section>
-  <?php endif; ?>
+    <?php endif; ?>
+
+  </section>
 </section>
