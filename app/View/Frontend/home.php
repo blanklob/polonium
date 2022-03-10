@@ -1,4 +1,4 @@
-<h1>Je suis la page d'accueil</h1>
+<h1 class="text-4xl font-medium my-8 text-center">Homepage</h1>
 
 <div class='posts'>
 <?php

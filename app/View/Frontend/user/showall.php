@@ -3,7 +3,7 @@
   exit;
 } ?>
 
-<h1>Page Users</h1>
+<h1 class="text-4xl font-medium mt-4 mb-12 text-center">Page Users</h1>
 
 <section class="showall">
   <table>

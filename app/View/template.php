@@ -92,7 +92,7 @@
                     <div class="mt-6">
                         <nav class="grid gap-y-8">
                         <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
-                        Homepage
+                            Homepage
                         </a>
                         <?php if( isset($_COOKIE['userRole']) && ( $_COOKIE['userRole'] == 1 || $_COOKIE['userRole'] == 2 ) ) : ?>
                             <a href="/write-article" class="text-base font-medium text-gray-500 hover:text-gray-900">
@@ -132,7 +132,7 @@
         </div>
     </header>
 
-    <main role="main" id="mainContent">
+    <main class="flex flex-col items-center justify-center max-w-7xl mx-auto my-8 px-4 sm:px-6" role="main" id="mainContent">
         <?= $content; ?>
     </main>
 

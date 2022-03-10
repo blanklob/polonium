@@ -11,7 +11,7 @@
     </a>
   <?php endif; ?>
 
-  <h1><?php echo $post->getTitle(); ?></h1>
+  <h1 class="text-4xl font-medium mt-4 mb-12 text-center"><?php echo $post->getTitle(); ?></h1>
   <?php if ( $post->getPostThumbnail()) : ?>
     <img src="<?php echo $post->getPostThumbnail(); ?>">
   <?php endif; ?>
@@ -23,7 +23,7 @@
 
   <!-- COMMENTS -->
   <section class="comments">
-    <h2>Commentaires : </h2>
+    <h2 class="text-xl mt-4 mb-12 text-center">Commentaires : </h2>
 
     <?php foreach ($comments as $comment) : ?>
       <div class="comment">

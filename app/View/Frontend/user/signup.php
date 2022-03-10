@@ -1,4 +1,4 @@
-<h1>Page Sign Up</h1>
+<h1 class="text-4xl font-medium mt-4 mb-12 text-center">Page Sign Up</h1>
 
 <section class="write-article user-account">
 <form method="POST" action="/add-user">
