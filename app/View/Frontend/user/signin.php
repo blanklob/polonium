@@ -1,4 +1,4 @@
-<h1>Page Sign In</h1>
+<h1 class="text-4xl font-medium mt-4 mb-12 text-center">Page Sign In</h1>
 
 
 <section class="write-article user-account">

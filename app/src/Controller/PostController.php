@@ -18,7 +18,7 @@ class PostController extends BaseController
 
         $post = $manager->findAllPosts();
 
-        $this->render('Frontend/home', ['francis' => $post], 'le titre de la page');
+        $this->render('Frontend/home', ['francis' => $post], 'Polonium blog manager');
     }
 
     /**
@@ -35,7 +35,7 @@ class PostController extends BaseController
         $commentManager = new CommentManager(PDOFactory::getInstance());
         $comments = $commentManager->getAllComments($id);
 
-        $this->render('Frontend/post', ['post' => $post, 'comments' => $comments], 'le titre de la page');
+        $this->render('Frontend/post', ['post' => $post, 'comments' => $comments], 'Polonium blog manager – Posts');
     }
 
     /**
@@ -64,7 +64,7 @@ class PostController extends BaseController
      */
     public function getWriteArticle()
     {
-        $this->render('Frontend/write-article', [], 'Write Article');
+        $this->render('Frontend/write-article', [], 'Polonium blog manager – Write Article');
     }
 
 
@@ -77,7 +77,7 @@ class PostController extends BaseController
         $manager = new PostManager(PDOFactory::getInstance());
         $post = $manager->findPost($id);
 
-        $this->render('Frontend/modify-article', ['post' => $post], 'Write Article');
+        $this->render('Frontend/modify-article', ['post' => $post], 'Polonium blog manager –Write Article');
     }
 
     /**
