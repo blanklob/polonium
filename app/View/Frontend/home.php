@@ -7,7 +7,6 @@
   foreach( $francis as $post ) {
     // var_dump($post);
     ?>
-
       <article class="home-post">
         <?php if ( isset($_COOKIE['userRole']) && ( $_COOKIE['userRole'] == 1 || $_COOKIE['userRole'] == 2 ) ) : ?>
           <a href="/delete-article/<?php echo $post->getId(); ?>">
