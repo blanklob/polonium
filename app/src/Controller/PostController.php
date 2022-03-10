@@ -81,6 +81,19 @@ class PostController extends BaseController
     }
 
     /**
+     * @Route(path="/modify-article/{id}")
+     * @return void
+     */
+    public function postModifyArticle(int $id)
+    {
+        $manager = new PostManager(PDOFactory::getInstance());
+        $post = $manager->modifyArticle($_POST, $_FILES, $id);
+        header('Location: /');
+
+        exit;
+    }
+
+    /**
      * @Route(path="/add-new-post")
      * @return void
      */

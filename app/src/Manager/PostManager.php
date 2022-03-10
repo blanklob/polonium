@@ -60,6 +60,25 @@ class PostManager extends BaseManager
         $stmnt->execute();
     }
 
+    public function modifyArticle($post, $image, $id)
+    {
+        $query = 
+        'UPDATE Post
+        SET title=:title, content=:content, postThumbnail=:postThumbnail
+        WHERE id = :id';
+        $date = new \DateTime();
+
+        $strDate = $date->format('Y-m-d H:i:s');
+        $stmnt = $this->pdo->prepare($query);
+
+        $stmnt->bindValue('id', $id, \PDO::PARAM_INT);
+        $stmnt->bindValue('title', $post['title'], \PDO::PARAM_STR);
+        $stmnt->bindValue('content', $post['content'], \PDO::PARAM_STR);
+        $stmnt->bindValue('postThumbnail', $image['image']['name'], \PDO::PARAM_STR);
+        
+        $stmnt->execute();
+    }
+
     public function deletePost($id)
     {
         $query = 'DELETE FROM Comments WHERE post_id = :id';
